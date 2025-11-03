@@ -1,0 +1,22 @@
+// Define the name
+name: CI workflow
+
+// Add event triggers
+// Run the workflow on every push to the main branch
+// Run the workflow whenever a pull rquest is created to the main branch
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+// Add a job, that will run on the ubuntu latest runner
+// The job is a collection of steps that are run on the events
+// Add a container, so the job is run on the same thing always
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3.9-slim
+
